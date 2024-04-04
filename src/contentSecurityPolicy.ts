@@ -12,7 +12,6 @@ export function createCSP({ nonce }: { nonce: string }) {
         "self",
         `'nonce-${nonce}'`,
         "'strict-dynamic'",
-        "'unsafe-inline'",
         "https:", // next.js uses eval for sourcemaps in dev
         ...(isDev ? ["'unsafe-eval'"] : []),
       ],

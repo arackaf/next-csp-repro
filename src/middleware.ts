@@ -9,7 +9,6 @@ export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
 
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
 
   const csp = createCSP({ nonce });
 
@@ -21,6 +20,7 @@ export function middleware(request: NextRequest) {
     },
   });
   response.headers.set("Content-Security-Policy", csp);
+  response.headers.set("x-nonce", nonce);
 
   return response;
 }
