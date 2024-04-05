@@ -10,7 +10,7 @@ export const RouterRefresh: FC<{}> = () => {
   return (
     <div className="flex flex-col gap-2">
       <button
-        className="self-start"
+        className="border-white text-white p-3 bg-slate-500 self-start"
         onClick={() => {
           router.refresh();
           setTimeout(() => setChanged(true), 250);
@@ -18,7 +18,9 @@ export const RouterRefresh: FC<{}> = () => {
       >
         Click me to refresh router
       </button>
-      {changed ? <Link href="/page2">Now go to page 2</Link> : null}
+      <Link className="text-blue-700" href="/page2">
+        Go to page 2
+      </Link>
     </div>
   );
 };

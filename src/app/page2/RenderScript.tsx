@@ -14,7 +14,7 @@ export default async function RenderScript() {
 
   return (
     <>
-      <Script src="/script.js" nonce={nonce} />
+      <Script src="/script.js" strategy="afterInteractive" nonce={nonce} />
     </>
   );
 }
