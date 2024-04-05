@@ -1,10 +1,13 @@
-import { headers } from "next/headers";
-import Script from "next/script";
+import { Suspense } from "react";
+import RenderScript from "./RenderScript";
 
 export default function Page() {
-  const nonce = headers().get("x-nonce")!;
-
-  console.log("nonce in page 2", nonce);
-
-  return <Script src="/script.js" nonce={nonce} />;
+  return (
+    <>
+      <span>Page 2</span>
+      <Suspense fallback={<span className="text-blue">Loading...</span>}>
+        <RenderScript />
+      </Suspense>
+    </>
+  );
 }
